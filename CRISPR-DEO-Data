@@ -1,0 +1,29 @@
+# CRISPR-DEO: Power System Data
+
+## Data Sources
+
+This repository contains information about the data used in our IEEE Access paper "CRISPR-DEO: Decision-Aware Economic Dispatch Optimization via Sparse Gradient Editing for Power System Forecasting"
+
+### Primary Data Source
+- **Eskom System Status Reports (2015-2025)**
+- Available at: https://www.eskom.co.za
+- Historical load data, generation capacity, and operational statistics
+
+### Data Components
+1. **Hourly demand profiles** (2015-2024): 87,648 observations
+2. **Generator specifications**: 89 units (coal, gas, diesel, hydro, nuclear)
+3. **Renewable generation**: Wind and solar capacity data
+4. **System constraints**: Reserve requirements, ramping limits
+
+### Data Access
+All data is publicly available from Eskom Holdings SOC Ltd.
+- System reports: https://www.eskom.co.za/dataportal/
+- Weekly updates: Published every Monday
+
+### Citation
+If you use this data, please cite:
+Eskom Holdings SOC Ltd., "System status reports 2015-2025," 2024. [Online]. 
+Available: https://www.eskom.co.za
+
+### Contact
+For questions about data processing: ntebogang.moroke@nwu.ac.za
