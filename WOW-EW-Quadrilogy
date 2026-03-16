@@ -1,0 +1,245 @@
+# WOW-E-W Quadrilogy: A Thermodynamic Architecture for Cryptocurrency Portfolio Management
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![arXiv Paper 1](https://img.shields.io/badge/arXiv-Paper%201-b31b1b.svg)](https://arxiv.org/abs/2603.XXXXX)
+[![arXiv Paper 2.5](https://img.shields.io/badge/arXiv-Paper%202.5-b31b1b.svg)](https://arxiv.org/abs/2603.XXXXX)
+
+> **Replace all `XXXXXXX` placeholders with real DOI/arXiv IDs after deposit.**
+
+---
+
+## Overview
+
+The **WOW-E-W (Window-Orchestrated Wealth — Entropy-Weighted)** quadrilogy is a
+four-paper research programme that reframes cryptocurrency portfolio management
+through statistical mechanics, fluid dynamics, Riemannian information geometry,
+and thermodynamic control. Each paper produces outputs that the next paper
+consumes as inputs, forming a complete physics-based expert system.
+
+```
+Paper 1 ──► Paper 2 ──► Paper 2.5 ──► Paper 3
+ Regimes     Filter      Geometry      Portfolio
+ ξ̂_t(2)      h_t, z_t    G_t, κ_t      π*(a|s)
+ θ̂_t         r_t         β₀,β₁, W_t    Sharpe
+```
+
+---
+
+## Papers
+
+### Paper 1 — The Statistical Mechanics of Cryptocurrency Volatility Regimes
+**Authors:** L.D. Metsileng & N.D. Moroke  
+**Target:** Expert Systems with Applications (Elsevier)  
+**Status:** Under review  
+**arXiv:** [2603.XXXXX](https://arxiv.org/abs/2603.XXXXX)
+
+Derives the two-regime MS-GARCH specification from Jaynes's Maximum Entropy
+Principle, establishing the first information-theoretic justification for
+regime-switching in financial time series. Identifies the Calm-Phase Fragility
+Law (turbulence accounts for 80–96% of all trading days), BTC permanent
+criticality (τ½ = 0.30 days), and ETH kinetic trapping (τ½ = 31.74 days).
+Formalised as a deployable expert system with a three-rule boiling-point
+decision rule base.
+
+**Key outputs fed to downstream papers:**
+- Regime probabilities: `ξ̂_t(2)` (Hamilton filter)
+- Parameter path: `θ̂_t` (MS-GARCH-MaxEnt)
+- Regime half-lives: `τ½(turb)` per asset
+
+📁 [`paper1_ms_garch_maxent/`](./paper1_ms_garch_maxent/)
+
+---
+
+### Paper 2 — GRU Turbulence Filter: A Navier-Stokes Viscosity Analogy
+**Authors:** L.D. Metsileng & N.D. Moroke  
+**Target:** Neural Networks / Applied Soft Computing (Elsevier)  
+**Status:** In preparation  
+
+Establishes a functional identity between the GRU hidden-state update equation
+and the discretised Navier-Stokes momentum equation. The update gate acts as a
+state-dependent viscosity coefficient. Trained with a regime-conditioned loss
+function using Paper 1 outputs as conditioning information.
+
+📁 [`paper2_gru_turbulence/`](./paper2_gru_turbulence/)
+
+---
+
+### Paper 2.5 — Riemannian Geometry and Topological Data Analysis for Cryptocurrency Liquidity Risk
+**Authors:** L.D. Metsileng & N.D. Moroke  
+**Target:** IEEE Access  
+**Status:** Under review  
+**arXiv:** [2603.XXXXX](https://arxiv.org/abs/2603.XXXXX)
+
+Derives geodesic execution slippage S* on the Fisher information manifold of the
+MS-GARCH-MaxEnt model. Extracts Betti numbers from Level-2 order book topology
+via Vietoris-Rips persistent homology. Establishes the joint
+Curvature-Fragmentation condition.
+
+📁 [`paper25_riemannian_tda/`](./paper25_riemannian_tda/)
+
+---
+
+### Paper 3 — Deep Reinforcement Learning for Cryptocurrency Portfolio Management
+**Authors:** N.D. Moroke  
+**Target:** Risks, MDPI (Scopus Q1)  
+**Status:** Submitted March 2026  
+**DOI:** [10.3390/risks00000000](https://doi.org/10.3390/risks00000000)
+
+Trains a PPO agent on the free-energy Bellman equation with geodesic slippage
+S* and Wasserstein dissipation W_t as state-dependent costs. Derives and
+empirically validates the Portfolio Carnot Bound η ≤ 1 − H_turb/H_calm.
+Introduces the Friction Sensitivity Analysis and thermodynamic friction point c*.
+
+📁 [`paper3_ppo_portfolio/`](./paper3_ppo_portfolio/)
+
+---
+
+## Repository Structure
+
+```
+WOW-EW-Quadrilogy/
+├── README.md                          # This file
+├── CITATION.cff                       # Machine-readable citation
+├── LICENSE                            # CC BY 4.0
+├── data/
+│   ├── README_data.md                 # Data description
+│   ├── crypto_market_data.csv         # BTC, ETH, XRP, LTC, BCH (2017–2026)
+│   └── zenodo_deposit.md              # Zenodo DOI and metadata
+├── paper1_ms_garch_maxent/
+│   ├── README.md
+│   ├── ms_garch_maxent_estimation.py  # EM + Hamilton filter pipeline
+│   ├── thermodynamic_diagnostics.py   # Half-lives, order parameter, entropy
+│   └── requirements.txt
+├── paper2_gru_turbulence/
+│   ├── README.md
+│   └── (in preparation)
+├── paper25_riemannian_tda/
+│   ├── README.md
+│   ├── fisher_manifold.py             # Fisher metric estimation
+│   ├── persistent_homology.py         # Vietoris-Rips TDA pipeline
+│   ├── geodesic_slippage.py           # S* computation
+│   └── requirements.txt
+├── paper3_ppo_portfolio/
+│   ├── README.md
+│   ├── ppo_agent.py                   # PPO with free-energy reward
+│   ├── carnot_bound.py                # η bound computation
+│   ├── friction_sensitivity.py        # c* analysis
+│   ├── generate_figures.py            # All 5 manuscript figures
+│   └── requirements.txt
+└── .github/
+    └── CITATION.md
+```
+
+---
+
+## Data
+
+Daily OHLCV for BTC-USD, ETH-USD, XRP-USD, LTC-USD, BCH-USD  
+**Period:** January 2017 – March 2026 (15,834 asset-day observations)  
+**Source:** Yahoo Finance via `yfinance` API  
+**Zenodo DOI:** [10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)
+
+```python
+import yfinance as yf
+tickers = ['BTC-USD', 'ETH-USD', 'XRP-USD', 'LTC-USD', 'BCH-USD']
+data = yf.download(tickers, start='2017-01-01', end='2026-03-08')
+```
+
+---
+
+## Citation
+
+If you use this work, please cite the relevant paper(s):
+
+```bibtex
+@article{moroke2026paper3,
+  author  = {Moroke, N.D.},
+  title   = {Deep Reinforcement Learning for Cryptocurrency Portfolio
+             Management: A Free-Energy {PPO} Framework with Geodesic
+             Transaction Costs and Thermodynamic Efficiency Bounds},
+  journal = {Risks},
+  year    = {2026},
+  note    = {Submitted}
+}
+
+@unpublished{metsileng2026paper1,
+  author = {Metsileng, L.D. and Moroke, N.D.},
+  title  = {The Statistical Mechanics of Cryptocurrency Volatility
+            Regimes: A Maximum-Entropy Markov-Switching {GARCH}
+            Framework},
+  note   = {arXiv preprint arXiv:2603.XXXXX},
+  year   = {2026}
+}
+
+@unpublished{metsileng2026paper25,
+  author = {Moroke, N.D.},
+  title  = {Riemannian Geometry and Topological Data Analysis for
+            Cryptocurrency Liquidity Risk},
+  note   = {arXiv preprint arXiv:2603.XXXXX},
+  year   = {2026}
+}
+```
+
+---
+
+## Authors
+
+**Ntebogang Dinah Moroke** — Professor of Statistics, Deputy Dean  
+Faculty of Economic and Management Sciences  
+North-West University, Mmabatho 2735, South Africa  
+📧 ntebogang.moroke@nwu.ac.za  
+🔗 ORCID: [0000-0001-8545-1860](https://orcid.org/0000-0001-8545-1860)
+
+**L.D. Metsileng** — Co-author (Papers 1, 2)  
+North-West University, South Africa
+
+---
+
+## License
+
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).  
+Code is additionally available under the [MIT License](./LICENSE).
+
+---
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+.venv
+venv/
+
+# Data (large files — use Zenodo DOI instead)
+*.csv
+*.parquet
+*.h5
+*.pkl
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+## Acknowledgements
+
+Supported by the North-West University Research Development Programme.  
+Data sourced from Yahoo Finance. No external funding received.
